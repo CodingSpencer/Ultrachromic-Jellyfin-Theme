@@ -1,6 +1,6 @@
 /*Enlarge button row on item page, even more on mobile*/
 .mainDetailButtons {
-	font-size: 120%;
+  font-size: 120%;
 }
 
 /*Add fixes, start of file*/
@@ -78,9 +78,9 @@
  padding-top:0em;
 }
 .sectionTitle {
-	margin-left: .4em !important;
-	margin-top: .2em !important;
-	margin-bottom: .2em !important;
+  margin-left: .4em !important;
+  margin-top: .2em !important;
+  margin-bottom: .2em !important;
 }
 .sectionTitleTextButton > .material-icons {
     margin: 0;
@@ -135,28 +135,10 @@
   overflow: hidden !important;
 }
 
-/* Card images in detail sections - ensure they stay within their containers */
-.card .cardImageContainer {
-  max-height: 100% !important;
-  max-width: 100% !important;
-  overflow: hidden !important;
-  display: block !important;
-}
-
-/* Ensure card images don't break out of cards */
+/* Safely prevent image breakouts without crushing layout heights */
 .cardScalable {
   overflow: hidden !important;
 }
-
-/* Prevent card content from extending beyond card bounds */
-.detailPageContent .card .cardImageContainer {
-  position: relative !important;
-  z-index: 1 !important;
-}
-
-/* Ensure proper containment in scrolling sections */
-.scrollSlider .cardImageContainer {
-  display: block !important;
-  width: 100% !important;
-  height: auto !important;
+.card .cardImageContainer {
+  overflow: hidden !important;
 }
