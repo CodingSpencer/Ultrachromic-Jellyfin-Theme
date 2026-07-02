@@ -67,11 +67,21 @@
   padding-right: 16px !important;
 }
 
-/* Adjust scrolling sections to avoid poster overlap */
-.layout-desktop .emby-scroller-container {
+/* Add margin to main content to keep clear of fixed poster */
+.layout-desktop .detailPagePrimaryContainer {
   margin-right: 0 !important;
-  padding-right: 0 !important;
 }
+
+.layout-desktop .detailPageContent {
+  margin-right: 430px !important;  flex-shrink: 1 !important;
+  min-width: 0 !important;
+}
+
+/* Ensure poster stays constrained regardless of titlepage CSS */
+.layout-desktop .detailImageContainer .card {
+  width: auto !important;
+  max-width: 408px !important;
+  max-height: 612px !important;}
 
 /*Tweak entry field padding and alignment/sizes*/
 .emby-input,
@@ -139,33 +149,26 @@
   padding-left: 1em;
 }
 
-/*Fix card image containers to prevent overflow*/
-/* Detail page poster - constrain dimensions */
-.detailImageContainer .card .cardScalable {
+/* Prevent episodes/cast sections from being hidden under fixed poster on desktop */
+.layout-desktop .detailPageSecondaryContainer {
+  margin-right: 430px !important;
+  padding-right: 16px !important;
+}
+
+/* Add margin to main content to keep clear of fixed poster */
+.layout-desktop .detailPagePrimaryContainer {
+  margin-right: 0 !important;
+}
+
+.layout-desktop .detailPageContent {
+  margin-right: 430px !important;
+  flex-shrink: 1 !important;
+  min-width: 0 !important;
+}
+
+/* Ensure poster stays constrained regardless of titlepage CSS */
+.layout-desktop .detailImageContainer .card {
+  width: auto !important;
   max-width: 408px !important;
   max-height: 612px !important;
-  overflow: visible !important;
-}
-
-/* Detail page poster image - constrain size */
-.detailImageContainer .cardImageContainer.coveredImage {
-  max-height: 612px !important;
-  max-width: 408px !important;
-  overflow: hidden !important;
-  display: block !important;
-}
-
-/* Carousel/episode cards - ensure images show properly */
-.scrollSlider .cardImageContainer {
-  display: block !important;
-  width: 100% !important;
-  height: auto !important;
-  overflow: visible !important;
-  background-size: cover !important;
-  background-position: center !important;
-}
-
-/* Episode list cards - keep images visible */
-.itemsContainer .card .cardImageContainer {
-  overflow: visible !important;
 }
