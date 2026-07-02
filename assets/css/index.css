@@ -1,0 +1,20 @@
+/* Ultrachromic local app entrypoint */
+
+/* Core compatibility and UI fixes */
+@import "fixes.css";
+@import "jf_font.css";
+
+/* Core theme foundation */
+@import "base.css";
+@import "accentlist.css";
+
+/* Shape and UI utilities */
+@import "rounding.css";
+/* @import "rounding_circlehover.css"; */
+
+/* Optional base modules */
+@import "smallercast.css";
+@import "overlayprogress.css";
+@import "bottombarprogress.css";
+
+/* Add more modules from assets/css as you migrate them */
