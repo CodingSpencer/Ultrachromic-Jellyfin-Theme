@@ -1,47 +1,39 @@
-:root {--indicator: 0, 164, 220;}
-:root {--selection: 0, 164, 220;}
+:root {
+  --indicator: 0, 164, 220;
+  --selection: 0, 164, 220;
+}
 
 .emby-textarea {
   font-family: monospace;
   font-size: 10pt;
 }
 
-.card.show-animation:focus>.cardBox {
-  -webkit-transform:scale(1.1);
-  transform:scale(1.1);
+.card.show-animation:focus-within .cardBox {
+  transform: scale(1.05);
 }
 
-/*Theme user setting tab buttons*/
-div[data-role="controlgroup"] a.ui-btn-active {
-  background: rgba(0, 0, 0, 0.5) !important;
-  color: white !important;
-}
-
-div[data-role="controlgroup"] a[data-role="button"] {
-  display: table-cell !important;
-  margin: 0 !important;
-}
-
-/*Mobile tweaks*/
+/* Mobile tweaks */
 .layout-mobile .detailPagePrimaryContainer {
-    background: transparent;
+  background: transparent;
 }
 .layout-mobile .adminDrawerLogo {
-    border-bottom: none;
+  border-bottom: none;
 }
 .layout-mobile .itemBackdrop {
-    margin-top: 4rem;
+  margin-top: 4rem;
 }
 
-/*Stop covers from being scrolled on desktop*/
-.layout-desktop .detailImageContainer .card {
-    position: fixed !important;
-    top: 10% !important;
+/* Fixed the broken poster overlap - Using safe Sticky behavior instead of Fixed */
+.layout-desktop .detailSidebar {
+  position: sticky !important;
+  top: 4rem !important;
+  height: fit-content;
 }
 .layout-mobile .detailImageContainer .card {
-    position: absolute !important;
+  position: relative !important;
 }
-/*Top "task bar" enlarge text*/
+
+/* Top "task bar" enlarge text */
 .headerTabs.sectionTabs {
   text-size-adjust: 110%;
   font-size: 110%;
@@ -51,22 +43,22 @@ div[data-role="controlgroup"] a[data-role="button"] {
   margin-bottom: auto;
 }
 
-/*Theme process progress ring*/
-.progressring-spiner {
+/* Theme process progress ring - Fixed spelling typo */
+.progressring-spinner {
   border-color: rgba(var(--accent));
   border-width: .35em;
 }
 .progressring {
-    margin: .4em;
+  margin: .4em;
 }
 .progressring-bg {
-   display: none;
+  display: none;
 }
 
-/*Theme link color*/
-#itemDetailPage .button-link {color: inherit !important;}
+/* Theme link color */
+#itemDetailPage .button-link { color: inherit !important; }
 
-/*Accommodate mobile and align buttons and indicators*/
+/* Accommodate mobile and align buttons and indicators */
 .cardIndicators,
 .listItemIndicators {
   right: 0.5em; 
@@ -79,23 +71,20 @@ div[data-role="controlgroup"] a[data-role="button"] {
 }
 
 @media all and (min-width: 70em){
-  .cardOverlayFab-primary {
-    background-color: #00000000;
-  }
+  .cardOverlayFab-primary,
   .cardOverlayButtonIcon {
-    background-color: #00000000 !important;
+    background-color: transparent !important;
   }
   .cardOverlayContainer {
     background-color: rgba(0, 0, 0, 0.7);
   }
 }
+
 /* Play button hovering (for low width windows) */
 @media all and (max-width: 70em){
-  .cardOverlayFab-primary {
-    background-color: #00000000;
-  }
+  .cardOverlayFab-primary,
   .cardOverlayButtonIcon {
-    background-color: #00000000 !important;
+    background-color: transparent !important;
   }
   .cardOverlayContainer {
     background-color: rgba(0, 0, 0, 0.7);
@@ -105,124 +94,93 @@ div[data-role="controlgroup"] a[data-role="button"] {
   }
 }
 
-/*Media player*/
+/* Media player fixes */
 .nowPlayingPageImage {
   border: none;
 }
-
 .upNextDialog-countdownText {
   color: white;
 }
 
-/*Shrink the mouseover chapter image when scrobbling, still media player*/
+/* Shrink the mouseover chapter image when scrobbling */
 .chapterThumb {
-    height: 14vh;
-    min-width: 14vh;
-	box-shadow: 0 0 1.9vh #000;
+  height: 14vh;
+  min-width: 14vh;
+  box-shadow: 0 0 1.9vh #000;
 }
 .chapterThumbText {
-    font-size: 1em;
+  font-size: 1em;
 }
 .sliderBubble {
-  background: #0000;
+  background: transparent;
+  transform: translate3d(-50%, -108%, 0);
 }
 .chapterThumbTextContainer {
-    right: auto;
-	bottom: 4px;
-	padding: .25em 0.7em;
+  right: auto;
+  bottom: 4px;
+  padding: .25em 0.7em;
 }
 .chapterThumbContainer {
-    box-shadow: 0 0 1.9vh #000;
-}
-.sliderBubble {
-    -webkit-transform: translate3d(-50%,-108%,0);
-    transform: translate3d(-50%,-108%,0);
+  box-shadow: 0 0 1.9vh #000;
 }
 
-/*Narrow margins, theme main page*/
-.cardBox-bottompadded {
-    margin-bottom: 0.6em !important;
-}
+/* Clean up item margins and lists */
 .itemsContainer > .card > .cardBox {
-    margin-right: 0.8em;
+  margin-left: 0.6em !important;
+  margin-right: 0.8em !important;
 }
-.raised.homeLibraryButton {
-    background: rgba(0, 0, 0, 0.3) !important;
+.listItem:hover {
+  transition: background 0.2s ease;
+  background: rgba(0, 0, 0, 0.4);
 }
-.raised.homeLibraryButton:hover {
-    background: rgba(0, 0, 0, 0.5) !important;
+.visualCardBox, .cardImageContainer {
+  box-shadow: none;
 }
-.raised.homeLibraryButton:hover {transition: filter 0.2s}
-.raised.homeLibraryButton {transition: filter 0.2s}
+.backgroundProgress > div {
+  background: transparent;
+}
+.itemProgressBar {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* Home screen library card styling updates */
 .homeLibraryButton {
-    min-width: 12em;
-    margin: 0.4em;
+  min-width: 12em;
+  margin: 0.4em;
+  width: auto !important;
+  transition: filter 0.2s;
+  background: rgba(0, 0, 0, 0.3) !important;
+}
+.homeLibraryButton:hover {
+  background: rgba(0, 0, 0, 0.5) !important;
 }
 @media all and (max-width: 26em){
   .homeLibraryButton {
     min-width: 45%;
-    width: auto !important;
   }
 }
-.homeLibraryButton {
-  width: auto !important;
-}
-.listItem:hover {
-    transition: 0.2s;
-    background: rgba(0, 0, 0, 0.4);
-}
-.visualCardBox, .cardImageContainer {
-    box-shadow: none;
-}
-.backgroundProgress > div {
-    background: rgba(0, 0, 0, 0);
-}
-.itemProgressBar {
-    background: rgba(0, 0, 0, 0.25);
-}
-#divRunningTasks span {
-    color: rgba(255,255,255,0.75) !important;
-}
-.itemsContainer > .card > .cardBox {
-    margin-left: 0.6em !important;
-}
-.itemsContainer > .card > .cardBox {
-    margin-right: 0.8em;
-}
 
-/*ANIMATIONS*/
-/*Hover background for section title buttons*/
+/* Animations & Icons */
 .button-flat:hover {
-	background: rgba(0, 164, 220, 0.2);
-	color: #00a4dc !important;
+  background: rgba(0, 164, 220, 0.2);
+  color: #00a4dc !important;
 }
 .dashboardSection h3 {
-    margin: .5em .0em .5em .5em;
+  margin: .5em 0 .5em .5em;
 }
-.dashboardSection .sectionTitleTextButton > .material-icons.material-icons {
-    margin-top: .5em;
-    margin-bottom: .5em;
-    margin-right: .2em;
-}
-
-/*Rating star, normally yellow*/
 .starIcon {
-    color: rgba(255,255,255,.8);
+  color: rgba(255, 255, 255, .8);
 }
-
-/*Remove background on some icons*/
 .listItemIcon {
-    background: #0000 !important;
+  background: transparent !important;
 }
-
-/*Remove divider on list items*/
 .listItem-border {
-    border-color: rgba(255, 255, 255, 0) !important;
+  border-color: transparent !important;
 }
 
-/*Fix footers/headers displaying on small pop-ups*/
+/* Fix footers/headers displaying on small pop-ups */
 .formDialogFooter-clear,
 .formDialogHeader-clear,
 .innerCardFooterClear {
-    background-color: transparent !important;
+  background-color: transparent !important;
 }
