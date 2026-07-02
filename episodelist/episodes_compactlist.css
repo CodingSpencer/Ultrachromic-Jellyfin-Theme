@@ -1,6 +1,6 @@
-/*Size episode preview images in a more compact way*/
-.listItemImage.listItemImage-large.itemAction.lazy {
-  transition: filter 0.2s
+/* Size episode preview images in a more compact way */
+.listItemImage.listItemImage-large {
+  transition: filter 0.2s;
 }
 .listItemImageButton-icon {
   padding: 0;
@@ -14,7 +14,7 @@
   font-size: 1.6em !important;
 }
 @media all and (min-width: 100em){
-  .listItemImage.listItemImage-large.itemAction.lazy {
+  .listItemImage.listItemImage-large {
     height: 110px;
   }
   .listItem-content {
@@ -26,9 +26,9 @@
   }
 }
 @media all and (max-width: 100em){
-  .listItemImage.listItemImage-large.itemAction.lazy {height: 80px;}
-  .listItem-content {height: 85px;}
-  .secondary.listItem-overview.listItemBodyText {height: 2.5em; margin: 0;}
+  .listItemImage.listItemImage-large { height: 80px; }
+  .listItem-content { height: 85px; }
+  .secondary.listItem-overview.listItemBodyText { height: 2.5em; margin: 0; }
 }
 
 .missingIndicator, .unairedIndicator {
