@@ -61,6 +61,18 @@
   }
 }
 
+/* Prevent episodes/cast sections from being hidden under fixed poster */
+.layout-desktop .detailPageSecondaryContainer {
+  margin-right: 430px !important;
+  padding-right: 16px !important;
+}
+
+/* Adjust scrolling sections to avoid poster overlap */
+.layout-desktop .emby-scroller-container {
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+}
+
 /*Tweak entry field padding and alignment/sizes*/
 .emby-input,
 .emby-textarea {
@@ -128,17 +140,32 @@
 }
 
 /*Fix card image containers to prevent overflow*/
-/* Main detail page image - constrain size and prevent overlap */
-.cardImageContainer.coveredImage {
+/* Detail page poster - constrain dimensions */
+.detailImageContainer .card .cardScalable {
+  max-width: 408px !important;
+  max-height: 612px !important;
+  overflow: visible !important;
+}
+
+/* Detail page poster image - constrain size */
+.detailImageContainer .cardImageContainer.coveredImage {
   max-height: 612px !important;
   max-width: 408px !important;
   overflow: hidden !important;
+  display: block !important;
 }
 
-/* Safely prevent image breakouts without crushing layout heights */
-.cardScalable {
-  overflow: hidden !important;
+/* Carousel/episode cards - ensure images show properly */
+.scrollSlider .cardImageContainer {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  overflow: visible !important;
+  background-size: cover !important;
+  background-position: center !important;
 }
-.card .cardImageContainer {
-  overflow: hidden !important;
+
+/* Episode list cards - keep images visible */
+.itemsContainer .card .cardImageContainer {
+  overflow: visible !important;
 }
